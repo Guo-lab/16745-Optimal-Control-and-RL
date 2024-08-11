@@ -1,12 +1,13 @@
 # HW1_S23
 
+### If there are bugs in animation.jl, it might be caused by Julia version mismatch. It has to be the old v1.6. [Install & Config](https://julialang.org/downloads/platform/)
+
 **Due 2/8 11:59 PM Eastern.**
+
 
 ## Video walkthrough
 
 YouTube link: [https://youtu.be/V7i0tQlBLlE](https://youtu.be/V7i0tQlBLlE)
-
-[![HW1 Walkthrough](https://img.youtu.be/V7i0tQlBLlE.jpg)](https://youtu.be/V7i0tQlBLlE)
 
 
 ## Instructions
