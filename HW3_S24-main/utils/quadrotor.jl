@@ -82,16 +82,18 @@ function vis_traj!(vis, name, X; R = 0.1, color = mc.RGBA(1.0, 0.0, 0.0, 1.0))
 end
 
 function animate_quadrotor(Xsim, Xref, dt)
+    println("Animating ...")
     # animate quadrotor, show Xref with vis_traj!, and track Xref with the green sphere
     vis = mc.Visualizer()
     robot_obj = mc.MeshFileGeometry(joinpath(@__DIR__,"quadrotor.obj"))
     mc.setobject!(vis[:vic], robot_obj)
 
+    println("Animating 1 ...")
     vis_traj!(vis, :traj, Xref; R = 0.01, color = mc.RGBA(1.0, 0.0, 0.0, 1.0))
     target = mc.HyperSphere(mc.Point(0,0,0.0),0.1)
     mc.setobject!(vis[:target], target, mc.MeshPhongMaterial(color = mc.RGBA(0.0,1.0,0.0,0.4)))
 
-
+    println("Animating 2 ...")
     anim = mc.Animation(floor(Int,1/dt))
     for k = 1:length(Xsim)
         mc.atframe(anim, k) do
@@ -101,7 +103,10 @@ function animate_quadrotor(Xsim, Xref, dt)
             mc.settransform!(vis[:target], mc.Translation(Xref[k][1:3]))
         end
     end
+    println("Animating 3 ...")
+
     mc.setanimation!(vis, anim)
 
+    println("Animating 4 ...")
     return (mc.render(vis))
 end
